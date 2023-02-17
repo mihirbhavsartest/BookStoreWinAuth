@@ -1,0 +1,55 @@
+﻿@model Book
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="d-flex w-50 flex-column m-auto p-4 shadow mt-4 rounded-3 bg-dark text-white">
+    <form class="flex-column justify-content-center d-flex gap-4 py-2" method="post">
+
+        <div class="d-flex flex-wrap">
+            <label class="w-25 text-nowrap" asp-for="Name">Title</label>
+            <div class="w-75">
+                <input class="form-control" asp-for="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+
+            </div>
+        </div>
+        <div class="d-flex flex-wrap">
+            <label class="w-25 text-nowrap" asp-for="Author">Author</label>
+            <div class="w-75">
+
+                <input class="form-control" asp-for="Author" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+
+            </div>
+        </div>
+        <div class="d-flex flex-wrap">
+            <label class="w-25 text-nowrap" asp-for="Publish_Date">Published</label>
+            <div class="w-75">
+
+                <input class="form-control" asp-for="Publish_Date" />
+                <span asp-validation-for="Publish_Date" class="text-danger"></span>
+
+            </div>
+        </div>
+        <div class="d-flex flex-wrap">
+            <label class="w-25 text-nowrap" asp-for="Price">Price</label>
+            <div class="w-75">
+
+                <input class="form-control" asp-for="Price" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+
+            </div>
+        </div>
+        <div class="d-flex w-100 gap-3">
+            <input type="submit" value="Create" class="btn btn-success w-25" />
+            <a class="btn btn-secondary w-25" asp-action="Index" asp-controller="Home">Back</a> 
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

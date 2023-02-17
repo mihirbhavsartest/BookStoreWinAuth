@@ -1,0 +1,43 @@
+﻿@model List<Book>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to book store!</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Published</th>
+                <th>Price</th>
+                 @{
+                        if((bool)TempData["ISADMIN"]) 
+                        {
+                <th>
+                            <a class="btn btn-success" asp-controller="Home" asp-action="Create">Add Book +</a>
+                </th>
+                        }
+                 }
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach(Book x in Model)
+                {
+                    <tr>
+                        <td>@x.Id</td>
+                        <td>@x.Name</td>
+                        <td>@x.Author</td>
+                        <td>@x.Publish_Date</td>
+                        <td>@x.Price</td>
+                        <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.Id">Remove</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
